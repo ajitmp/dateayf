@@ -1,5 +1,5 @@
 from datetime import datetime
-from dateutil.parser import parse
+#from dateutil.parser import parse
 
 
 DATE_FORMATS = ["%m/%d/%Y", "%Y-%m-%d","%m/%d/%Y", "%B %d, %Y","%d %B %Y","%d %B, %Y","%b. %d, %Y","%b %d, %Y"]
