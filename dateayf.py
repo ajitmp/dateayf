@@ -13,13 +13,28 @@ def find_suitable_format(input_text_date):
             continue
     return None
 
+def clean_date_str(input_date_str):
+    if "th" in input_date_str :
+        return input_date_str.replace("th","")
+    elif "rd" in input_date_str :
+        return input_date_str.replace("rd","")
+    elif "st" in input_date_str :
+        return input_date_str.replace("st","")
+    elif "nd" in input_date_str :
+        return input_date_str.replace("nd","")
+    elif input_date_str.lower().startswith("sept"):
+        return input_date_str.strip().replace("Sept.", "Sep.")
+    else:
+        return input_date_str.strip()
+
 
 def convert_any_to_your_format(input_text_date, target_date):
     #specail case :Python's %b typically matches "Sep", not "Sept.". 
-    if input_text_date.lower().startswith("sept"):         
-        clean_input_text_date= input_text_date.strip().replace("Sept.", "Sep.")
-    else:
-        clean_input_text_date= input_text_date.strip()
+    # if input_text_date.lower().startswith("sept"):         
+    #     clean_input_text_date= input_text_date.strip().replace("Sept.", "Sep.")
+    # else:
+    #     clean_input_text_date= input_text_date.strip()
+    clean_input_text_date = clean_date_str(input_text_date)
     clean_target_date = target_date.strip()
     desired_format = find_suitable_format(clean_target_date)
     #print(desired_format)

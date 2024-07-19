@@ -77,6 +77,28 @@ class TestAddFunction(unittest.TestCase):
         any_format_date = "Nov. 17, 2023 "
         result = convert_any_to_your_format(any_format_date, self.your_format_date)
         self.assertEqual(result, "17 November, 2023")
+
+    def test_date_suffic_th(self):
+        any_format_date = "9th April 2024"
+        result = convert_any_to_your_format(any_format_date, self.your_format_date)
+        self.assertEqual(result, "09 April, 2024")
+
+    def test_date_suffic_rd(self):
+        any_format_date = "3rd July 2024"
+        result = convert_any_to_your_format(any_format_date, self.your_format_date)
+        self.assertEqual(result, "03 July, 2024")    
+
+    def test_date_suffic_st(self):
+        any_format_date = "1st July 2024"
+        result = convert_any_to_your_format(any_format_date, self.your_format_date)
+        self.assertEqual(result, "01 July, 2024")    
+
+
+    def test_date_suffic_nd(self):
+        any_format_date = "2nd July 2024"
+        result = convert_any_to_your_format(any_format_date, self.your_format_date)
+        self.assertEqual(result, "02 July, 2024")    
+
       
 
     # def test_full_monthname_trailing_space(self):
